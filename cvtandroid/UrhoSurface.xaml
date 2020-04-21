@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:urho="clr-namespace:Urho.Forms;assembly=UrhoSharp.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="cvtandroid.UrhoSurface">
+    <ContentPage.Content>
+        <urho:UrhoSurface x:Name="urhoSurface" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></urho:UrhoSurface>
+    </ContentPage.Content>
+</ContentPage>

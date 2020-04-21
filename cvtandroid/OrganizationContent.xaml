@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:ios="clr-namespace:UIKit;assembly=Xamarin.iOS" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="cvtandroid.OrganizationContent">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image x:Name="myimage"></Image>
+                    <ListView x:Name="ListViewLibraries" ItemTapped="OnListViewLibrariesItemTapped" Footer="">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid Padding="10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1"
+                                           Text="{Binding Name}"
+                                           FontAttributes="Bold" />
+                                    </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

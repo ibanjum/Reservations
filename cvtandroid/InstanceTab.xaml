@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:urho="clr-namespace:Urho.Forms;assembly=UrhoSharp.Forms" xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="cvtandroid.InstanceTab">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Properties">
+        <StackLayout Margin="10">
+               <ListView x:Name="ListViewInstances" ItemTapped="OnListViewPropertiesItemTapped" Footer="">
+                   <ListView.Header>
+                      <Grid>
+                                          <Grid.RowDefinitions>
+                                           <RowDefinition Height="*"/>
+                                       </Grid.RowDefinitions>
+                                       <Grid.ColumnDefinitions>
+                                           <ColumnDefinition />
+                                           <ColumnDefinition/>
+                                       </Grid.ColumnDefinitions>
+                                <BoxView Grid.Row="0"></BoxView>
+                               <Label Grid.Column="0" Text="Name" FontAttributes="Bold" ></Label>
+                               <Label Grid.Column="1" Text="Value" FontAttributes="Bold"></Label>
+                           </Grid>
+                </ListView.Header>
+                   <ListView.ItemTemplate>
+                       <DataTemplate>
+                           <ViewCell>
+                                  <Grid>
+                                   <Grid.RowDefinitions>
+                                           <RowDefinition Height="Auto"/>
+                                       </Grid.RowDefinitions>
+                                       <Grid.ColumnDefinitions>
+                                           <ColumnDefinition />
+                                           <ColumnDefinition/>
+                                       </Grid.ColumnDefinitions>
+
+                               <Label Grid.Column="0" Text="{Binding Name}"></Label>
+                               <Label Grid.Column="1" Text="{Binding Value}"></Label>
+                               <Label Grid.Column="1" Text="{Binding Count}"></Label>
+                           </Grid>
+                           </ViewCell>
+                       </DataTemplate>
+                   </ListView.ItemTemplate>
+               </ListView>
+           </StackLayout>
+    </ContentPage>
+    <ContentPage Title="View" x:Name="ViewPage">
+         <StackLayout>
+              <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface" x:Name="CanvasView"></skia:SKCanvasView>
+              <Button x:Name="UrhoButton" Text="View 3D" Clicked="UrhoClicked" IsVisible="False"></Button>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
