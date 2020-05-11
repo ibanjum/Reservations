@@ -32,4 +32,8 @@ RemoveDynamicRegistrar:false
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/SkiaSharp.Views.Forms.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/SkiaSharp.Views.iOS.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/UrhoSharp.Forms.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/MonkeyCache.FileStore.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/MonkeyCache.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/Xamarin.Essentials.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/OpenTK-1.0.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.app:/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/mtouch-cache/1-Link/System.Runtime.dll

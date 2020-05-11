@@ -1,4 +1,6 @@
 FormsViewGroup
+MonkeyCache
+MonkeyCache.FileStore
 SkiaSharp
 SkiaSharp.Views.Android
 SkiaSharp.Views.Forms

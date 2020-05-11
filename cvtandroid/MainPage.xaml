@@ -14,7 +14,11 @@
         <Entry Placeholder="User Name" x:Name="UserId" TextColor="Black" />
          <Entry Placeholder="Password" x:Name="Password" IsPassword="True" TextColor="Black" />
          <Button Text="Log In" Clicked="Login_Pressed" BackgroundColor="Goldenrod" TextColor="Black"/>
-         <Label Text="" x:Name="Error" IsVisible="False"/>
+         <StackLayout Orientation="Horizontal" Padding="10">
+             <Label x:Name="LabelRegister" TextColor="#006fcf" Text="Register" HorizontalOptions="CenterAndExpand"></Label>
+             <Label x:Name="LabelForgotPassword" TextColor="#006fcf" Text="Forgot Password?" HorizontalOptions="CenterAndExpand"></Label>
+             <Label Text="" x:Name="Error" IsVisible="False" HorizontalOptions="CenterAndExpand" TextColor="Red"/>
+         </StackLayout>
          </StackLayout>
 </Grid>
 </ContentPage>

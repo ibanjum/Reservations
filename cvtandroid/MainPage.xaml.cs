@@ -1,21 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Xml;
-using System.IO;
 using System.Net;
 using Newtonsoft.Json;
+using Xamarin.Essentials;
+using MonkeyCache.FileStore;
 
 namespace cvtandroid
 {
-
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
     [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
@@ -23,23 +17,37 @@ namespace cvtandroid
         public MainPage()
         {
             InitializeComponent();
+
+            var tapForgotPassword = new TapGestureRecognizer();
+            tapForgotPassword.Tapped += async (s, e) => {
+                await Browser.OpenAsync("https://www.constructivity.com/Account/Forgot", BrowserLaunchMode.SystemPreferred);
+            };
+            LabelForgotPassword.GestureRecognizers.Add(tapForgotPassword);
+
+            var tapRegister= new TapGestureRecognizer();
+            tapRegister.Tapped += async (s, e) => {
+                await Browser.OpenAsync("https://www.constructivity.com/Account/Register", BrowserLaunchMode.SystemPreferred);
+            };
+            LabelRegister.GestureRecognizers.Add(tapRegister);
         }
         private async void Login_Pressed(object sender, EventArgs e)
         {
             string url = "https://www.constructivity.com/";
-
             string jsonTokenObject = getToken(url, UserId.Text, Password.Text);
-            var TokenObject = JsonConvert.DeserializeObject<Token>(jsonTokenObject);
-
-            if(!String.IsNullOrEmpty(TokenObject.error_description))
+            try
             {
-                Error.Text = TokenObject.error_description;
+                var TokenObject = JsonConvert.DeserializeObject<Token>(jsonTokenObject);
+                Application.Current.Properties["UserId"] = UserId.Text;
+                await Application.Current.SavePropertiesAsync();
+
+                Barrel.ApplicationId = "Constructivity" + UserId.Text;
+                Barrel.Current.Add(key: "token", data: TokenObject, TimeSpan.FromDays(1));
+            }
+            catch
+            {
+                Error.Text = "Invalid Username or Password.";
                 Error.IsVisible = true;
                 return;
-            }
-            else
-            {
-                Application.Current.Properties["token"] = TokenObject.access_token;
             }
             await Navigation.PushAsync(new Home());
          }

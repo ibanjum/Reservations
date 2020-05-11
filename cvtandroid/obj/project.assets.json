@@ -20,6 +20,31 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "MonkeyCache/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonkeyCache.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.dll": {}
+        }
+      },
+      "MonkeyCache.FileStore/1.3.0": {
+        "type": "package",
+        "dependencies": {
+          "MonkeyCache": "1.3.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/MonkeyCache.FileStore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.FileStore.dll": {}
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "type": "package",
         "dependencies": {
@@ -376,7 +401,7 @@
           }
         }
       },
-      "Xamarin.Essentials/1.5.2": {
+      "Xamarin.Essentials/1.5.3.1": {
         "type": "package",
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -388,7 +413,7 @@
           "lib/netstandard2.0/Xamarin.Essentials.dll": {}
         }
       },
-      "Xamarin.Forms/4.5.0.617": {
+      "Xamarin.Forms/4.6.0.726": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {},
@@ -436,6 +461,90 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "MonkeyCache/1.3.0": {
+      "sha512": "2vKApQKjFaJWCJJSqPmYo572RW1eISKIfPrLRe+qsrQFSmwYxUWEWvu/GVzpIlPSdcRHrxFPz9Z2v7VxjpOC4A==",
+      "type": "package",
+      "path": "monkeycache/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/MonkeyCache.dll",
+        "lib/monoandroid71/MonkeyCache.pdb",
+        "lib/monoandroid71/MonkeyCache.xml",
+        "lib/monoandroid80/MonkeyCache.dll",
+        "lib/monoandroid80/MonkeyCache.pdb",
+        "lib/monoandroid80/MonkeyCache.xml",
+        "lib/monoandroid81/MonkeyCache.dll",
+        "lib/monoandroid81/MonkeyCache.pdb",
+        "lib/monoandroid81/MonkeyCache.xml",
+        "lib/monoandroid90/MonkeyCache.dll",
+        "lib/monoandroid90/MonkeyCache.pdb",
+        "lib/monoandroid90/MonkeyCache.xml",
+        "lib/netstandard2.0/MonkeyCache.dll",
+        "lib/netstandard2.0/MonkeyCache.pdb",
+        "lib/netstandard2.0/MonkeyCache.xml",
+        "lib/uap10.0.16299/MonkeyCache.dll",
+        "lib/uap10.0.16299/MonkeyCache.pdb",
+        "lib/uap10.0.16299/MonkeyCache.pri",
+        "lib/uap10.0.16299/MonkeyCache.xml",
+        "lib/xamarinios10/MonkeyCache.dll",
+        "lib/xamarinios10/MonkeyCache.pdb",
+        "lib/xamarinios10/MonkeyCache.xml",
+        "lib/xamarinmac20/MonkeyCache.dll",
+        "lib/xamarinmac20/MonkeyCache.pdb",
+        "lib/xamarinmac20/MonkeyCache.xml",
+        "lib/xamarintvos10/MonkeyCache.dll",
+        "lib/xamarintvos10/MonkeyCache.pdb",
+        "lib/xamarintvos10/MonkeyCache.xml",
+        "lib/xamarinwatchos10/MonkeyCache.dll",
+        "lib/xamarinwatchos10/MonkeyCache.pdb",
+        "lib/xamarinwatchos10/MonkeyCache.xml",
+        "monkeycache.1.3.0.nupkg.sha512",
+        "monkeycache.nuspec"
+      ]
+    },
+    "MonkeyCache.FileStore/1.3.0": {
+      "sha512": "9SO1tlf6B5qaUMOfmYhRY3DYrs1+KIVsHZIuxDdaqm+uE5iP8nmyv2uL4xCgCG6TSBw51OPg+Fl++bsx0pGiWg==",
+      "type": "package",
+      "path": "monkeycache.filestore/1.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid71/MonkeyCache.FileStore.dll",
+        "lib/monoandroid71/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid71/MonkeyCache.FileStore.xml",
+        "lib/monoandroid80/MonkeyCache.FileStore.dll",
+        "lib/monoandroid80/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid80/MonkeyCache.FileStore.xml",
+        "lib/monoandroid81/MonkeyCache.FileStore.dll",
+        "lib/monoandroid81/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid81/MonkeyCache.FileStore.xml",
+        "lib/monoandroid90/MonkeyCache.FileStore.dll",
+        "lib/monoandroid90/MonkeyCache.FileStore.pdb",
+        "lib/monoandroid90/MonkeyCache.FileStore.xml",
+        "lib/netstandard2.0/MonkeyCache.FileStore.dll",
+        "lib/netstandard2.0/MonkeyCache.FileStore.pdb",
+        "lib/netstandard2.0/MonkeyCache.FileStore.xml",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.dll",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.pdb",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.pri",
+        "lib/uap10.0.16299/MonkeyCache.FileStore.xml",
+        "lib/xamarinios10/MonkeyCache.FileStore.dll",
+        "lib/xamarinios10/MonkeyCache.FileStore.pdb",
+        "lib/xamarinios10/MonkeyCache.FileStore.xml",
+        "lib/xamarinmac20/MonkeyCache.FileStore.dll",
+        "lib/xamarinmac20/MonkeyCache.FileStore.pdb",
+        "lib/xamarinmac20/MonkeyCache.FileStore.xml",
+        "lib/xamarintvos10/MonkeyCache.FileStore.dll",
+        "lib/xamarintvos10/MonkeyCache.FileStore.pdb",
+        "lib/xamarintvos10/MonkeyCache.FileStore.xml",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.dll",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.pdb",
+        "lib/xamarinwatchos10/MonkeyCache.FileStore.xml",
+        "monkeycache.filestore.1.3.0.nupkg.sha512",
+        "monkeycache.filestore.nuspec"
       ]
     },
     "NETStandard.Library/2.0.3": {
@@ -1982,10 +2091,10 @@
         "urhosharp.forms.nuspec"
       ]
     },
-    "Xamarin.Essentials/1.5.2": {
-      "sha512": "qHxkrkx5jIC0X/qWhxCPZ3MuuOJm8bfCzAoUtlpOBSE4oV0JhrkTezK0A+IV+k/MeJ3zKc8FexaIXah9rlCTIw==",
+    "Xamarin.Essentials/1.5.3.1": {
+      "sha512": "6sE3kGMhES7dsR8ll+ar+roEIFobjPfDskKNMsU4FF6cV27ZsdArGZHxe1QqPPJcMT6PzJsGvA3l5PNMZgw5ng==",
       "type": "package",
-      "path": "xamarin.essentials/1.5.2",
+      "path": "xamarin.essentials/1.5.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2026,14 +2135,14 @@
         "lib/xamarinwatchos10/Xamarin.Essentials.pdb",
         "lib/xamarinwatchos10/Xamarin.Essentials.xml",
         "readme.txt",
-        "xamarin.essentials.1.5.2.nupkg.sha512",
+        "xamarin.essentials.1.5.3.1.nupkg.sha512",
         "xamarin.essentials.nuspec"
       ]
     },
-    "Xamarin.Forms/4.5.0.617": {
-      "sha512": "tB/h7bHEylOgNT+521SRnbmO+LCe5R3lPboD/icCMpa+FdjmxhZQ7+fIIPFDbhY2dqYetGRnAeJWXVx4NLbmAw==",
+    "Xamarin.Forms/4.6.0.726": {
+      "sha512": "NI7iL5NnrQN/gCyoHLlexcDndNin67hFV7ObG8QQU2zbEi15B1SRaAsuiNeXVYAHfXg3/amqryqzGd+3R6lyZQ==",
       "type": "package",
-      "path": "xamarin.forms/4.5.0.617",
+      "path": "xamarin.forms/4.6.0.726",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2296,8 +2405,8 @@
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/Themes/generic.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/PageControlStyle.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/PickerStyle.xaml",
+        "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/PromptDialog.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/Resources.xaml",
-        "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/Shell/ShellStyles.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/SliderStyle.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/StepperControl.xaml",
         "lib/uap10.0.14393/Xamarin.Forms.Platform.UAP/TabbedPageStyle.xaml",
@@ -2328,6 +2437,7 @@
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/Microsoft.UI.Xaml/Themes/generic.xaml",
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/PageControlStyle.xaml",
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/PickerStyle.xaml",
+        "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/PromptDialog.xaml",
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/Resources.xaml",
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/Shell/ShellStyles.xaml",
         "lib/uap10.0.16299/Xamarin.Forms.Platform.UAP/SliderStyle.xaml",
@@ -2338,21 +2448,22 @@
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.dll",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.pdb",
         "lib/uap10.0.16299/Xamarin.Forms.Xaml.xml",
-        "xamarin.forms.4.5.0.617.nupkg.sha512",
+        "xamarin.forms.4.6.0.726.nupkg.sha512",
         "xamarin.forms.nuspec"
       ]
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "MonkeyCache.FileStore >= 1.3.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
       "SkiaSharp.Svg >= 1.60.0",
       "SkiaSharp.Views.Forms >= 1.68.1.1",
       "System.Linq >= 4.3.0",
       "UrhoSharp.Forms >= 1.9.67",
-      "Xamarin.Essentials >= 1.5.2",
-      "Xamarin.Forms >= 4.5.0.617"
+      "Xamarin.Essentials >= 1.5.3.1",
+      "Xamarin.Forms >= 4.6.0.726"
     ]
   },
   "packageFolders": {
@@ -2390,6 +2501,10 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
+          "MonkeyCache.FileStore": {
+            "target": "Package",
+            "version": "[1.3.0, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
@@ -2418,11 +2533,11 @@
           },
           "Xamarin.Essentials": {
             "target": "Package",
-            "version": "[1.5.2, )"
+            "version": "[1.5.3.1, )"
           },
           "Xamarin.Forms": {
             "target": "Package",
-            "version": "[4.5.0.617, )"
+            "version": "[4.6.0.726, )"
           }
         },
         "imports": [

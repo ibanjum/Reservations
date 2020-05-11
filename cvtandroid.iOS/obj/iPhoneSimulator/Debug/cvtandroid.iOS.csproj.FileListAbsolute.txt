@@ -1,5 +1,9 @@
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.exe
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.iOS.pdb
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/MonkeyCache.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/MonkeyCache.pdb
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/MonkeyCache.FileStore.dll
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/MonkeyCache.FileStore.pdb
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/SkiaSharp.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/SkiaSharp.Extended.Svg.dll
@@ -53,19 +57,19 @@
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/Constructivity.Core.dll
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/cvtandroid.pdb
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.pdb
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/coremlc/_PartialAppManifest.items
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/coremlc/_BundleResourceWithLogicalName.items
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/optimized/banner.png
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/optimized/OrganizationIcon.png
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/optimized/ProjectIcon.png
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/optimized/Menu.png
-/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/optimized/
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/cvtandroid.iOS.csprojAssemblyReference.cache
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/cvtandroid.iOS.csproj.CoreCompileInputs.cache
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/XamlC.stamp
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/cvtandroid.iOS.csproj.CopyComplete
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/cvtandroid.iOS.exe
 /Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/cvtandroid.iOS.pdb
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/ibtool/_BundleResourceWithLogicalName.items
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/actool/_PartialAppManifest.items
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/actool/_BundleResourceWithLogicalName.items
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/coremlc/_PartialAppManifest.items
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/coremlc/_BundleResourceWithLogicalName.items
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/optimized/banner.png
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/optimized/OrganizationIcon.png
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/optimized/ProjectIcon.png
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/optimized/Menu.png
+/Users/ib/Projects/cvtandroid/cvtandroid.iOS/obj/iPhoneSimulator/Debug/device-builds/iphone 11-13.4/optimized/

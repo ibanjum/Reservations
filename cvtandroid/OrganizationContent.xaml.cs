@@ -1,20 +1,21 @@
-﻿using Newtonsoft.Json;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Constructivity.Access;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using System.Reflection;
-using System;
 
 namespace cvtandroid
 {
     public partial class OrganizationContent : ContentPage
     {
-        public Organization _org = null;
+        Organization _org;
 
         public OrganizationContent(Organization organization)
         {
             InitializeComponent();
+
+            if (organization == null)
+                return;
+
             _org = organization;
             StackLayout titleview = Graphics.GetTitleView(_org.Name, _org.Name);
             Xamarin.Forms.NavigationPage.SetTitleView(this, titleview);
@@ -26,11 +27,16 @@ namespace cvtandroid
         {
             LibraryReference libRef = e.Item as LibraryReference;
 
-            Constructivity.Core.Library lib = DataController.GetLibrary(libRef.Name);
+            if (libRef == null)
+                return;
+
+            Constructivity.Core.Library lib = DataController.GetLibrary(_org.Name, libRef.Name);
             if (lib == null)
             {
-                lib = DataController.CallLibraryApi(_org.Name, libRef.Name);
+                await DisplayAlert("Error", "Could not contact the server, please try again later.", "OK");
+                return;
             }
+
             await Navigation.PushAsync(new ProjectContent(_org, lib));
         }
 

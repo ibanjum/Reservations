@@ -5,8 +5,9 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-  <application android:label="cvtandroid.Android" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
-    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="cvtandroid" android:theme="@style/MainTheme" android:name="crc64dcb9a579b8faadec.MainActivity">
+  <application android:label="Constructivity" android:name="android.app.Application" android:allowBackup="true" android:icon="@mipmap/icon" android:debuggable="true">
+    <activity android:configChanges="orientation|screenSize" android:icon="@mipmap/icon" android:label="Constructivity" android:theme="@style/MainTheme" android:name="crc64dcb9a579b8faadec.MainActivity" />
+    <activity android:noHistory="true" android:theme="@style/splashscreen" android:name="crc64dcb9a579b8faadec.SplashScreen">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />

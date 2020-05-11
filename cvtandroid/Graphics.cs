@@ -93,30 +93,23 @@ namespace cvtandroid
 
                     if (layer.Thickness != null && layer.Members == null)
                     {
-                        long rgb = 0xFFFFFF;
+                        SKPaint paintMaterial = new SKPaint();
                         if (layer.Material != null)
                         {
-                            rgb = layer.Material.Color;
+                            paintMaterial.Style = SKPaintStyle.Fill;
+                            paintMaterial.Color = ConvertColor(layer.Material.Color).ToSKColor();
                         }
-                        long r = rgb & 0xFF0000;
-                        long g = rgb & 0x00FF00;
-                        long b = rgb & 0x0000FF;
 
-                        SKPaint paintMaterial = new SKPaint()
-                        {
-                            Style = SKPaintStyle.Fill,
-                            Color = SKColors.Black,
-                        };
+                        
                         SKPaint paintStroke = new SKPaint()
                         {
                             Style = SKPaintStyle.Stroke,
-                            Color = SKColors.Red,
+                            Color = SKColors.Black,
                             StrokeWidth = 1,
-                            StrokeJoin = SKStrokeJoin.Round
                         };
 
-                        canvas.DrawRect(0, (float)(y * wy), (float)wx, (float)wy, paintMaterial);
-                        canvas.DrawRect(0, (float)(y * wy), (float)wx, (float)wy, paintStroke);
+                        canvas.DrawRect(0, (float)(y * wy), (float)wx, (float)(t * wy), paintMaterial);
+                        canvas.DrawRect(0, (float)(y * wy), (float)wx, (float)(t * wy), paintStroke);
                     }
 
                     if (layer.Members != null)
@@ -144,35 +137,29 @@ namespace cvtandroid
                                         float sx = (float)(section.LengthX.Value * wx);
                                         float sy = (float)(section.LengthY.Value * wy);
 
-                                        long rgb = 0xFFFFFF;
+       
+                                        SKPaint paintSection = new SKPaint();
                                         if (section.Material != null && section.Material.Color != 0)
                                         {
-                                            rgb = section.Material.Color;
+                                            paintSection.Style = SKPaintStyle.Fill;
+                                            paintSection.Color = ConvertColor(section.Material.Color).ToSKColor();
                                         }
 
-                                        long r = rgb & 0xFF0000;
-                                        long g = rgb & 0x00FF00;
-                                        long b = rgb & 0x0000FF;
-
-                                        SKPaint paintSection = new SKPaint()
+                                        SKPaint paintStroke = new SKPaint()
                                         {
-                                            Style = SKPaintStyle.Fill,
-                                            StrokeWidth = 1,
-                                            Color = ConvertColor(section.Material.Color).ToSKColor(),
-                                        };
-                                        SKPaint paintLine = new SKPaint()
-                                        {
-                                            Style = SKPaintStyle.Fill,
+                                            Style = SKPaintStyle.Stroke,
                                             StrokeWidth = 1,
                                             Color = SKColors.Black,
                                         };
 
                                         canvas.DrawRect((float)(x * wx), (float)(y * wy), sx, sy, paintSection);
-                                        canvas.DrawLine((float)(x * wx), (float)(y * wy), (float)(x * wx + sx), (float)(y * wy + sy), paintLine);
-                                        canvas.DrawLine((float)(x * wx), (float)(y * wy + sy), (float)(x * wx + sx), (float)(y * wy), paintLine);
+                                        canvas.DrawRect((float)(x * wx), (float)(y * wy), sx, sy, paintStroke);
+
+                                        canvas.DrawLine((float)(x * wx), (float)(y * wy), (float)(x * wx + sx), (float)(y * wy + sy), paintStroke);
+                                        canvas.DrawLine((float)(x * wx), (float)(y * wy + sy), (float)(x * wx + sx), (float)(y * wy), paintStroke);
                                         //sb.Append("<rect x=\"" + x * wx + "\" y=\"" + y * wy + "\" width=\"" + sx + "\" height=\"" + sy + "\" style=\"fill:rgb(" + r + "," + g + "," + b + ");stroke-width:1;stroke:rgb(0,0,0)\" />");
                                         //sb.Append("<line X1=\"" + x * wx + "\" Y1=\"" + (y * wy) + "\" X2=\"" + (x * wx + sx) + "\" Y2=\"" + (y * wy + sy) + "\" style=\"stroke-width:1;stroke:rgb(0,0,0)\" />");
-                                        //sb.Append("<line X1=\"" + x * wx + "\" Y1=\"" + (y * wy + sy) + "\" X2=\"" + (x * wx + sx) + "\" Y2=\"" + (y * wy) + "\" style=\"stroke-width:1;stroke:rgb(0,0,0)\" />");
+                                       // sb.Append("<line X1=\"" + x * wx + "\" Y1=\"" + (y * wy + sy) + "\" X2=\"" + (x * wx + sx) + "\" Y2=\"" + (y * wy) + "\" style=\"stroke-width:1;stroke:rgb(0,0,0)\" />");
                                     }
 
                                     i++;
@@ -249,7 +236,8 @@ namespace cvtandroid
             SKPath catPath = SKPath.ParseSvgPathData(svgpath);
             SKPaint paint = new SKPaint()
             {
-                Style = SKPaintStyle.Fill,
+                Style = SKPaintStyle.Stroke,
+                StrokeWidth = 1,
                 Color = SKColors.Black,
             };
             if (svgpath != null && xmax > xmin && ymax > ymin)
@@ -267,15 +255,13 @@ namespace cvtandroid
 
                 float offsetx =(float) (mm - midx);
                 float offsety =(float) (-mm - midy);
-
-
+                
                 canvas.Translate(offsetx, offsety);
-                canvas.Scale(scale);
+                canvas.Scale(info.Width, info.Width);
                 canvas.DrawPath(catPath, paint);
 
                 return canvas;
             }
-
             return null;
         }
         private static string LayoutSVG(
@@ -413,9 +399,9 @@ namespace cvtandroid
             string _color = "#" + color.ToString();
             return (Color)converter.ConvertFromInvariantString(_color);
         }
-        public static StackLayout GetTitleView(string orgName, string title)
+        public static StackLayout GetTitleView(string Name, string title)
         {
-            ImageSource source = DataController.GetIcon(orgName + "icon");
+            ImageSource source = DataController.GetIcon(Name + "icon");
             StackLayout titleview = new StackLayout()
             {
                 Orientation = StackOrientation.Horizontal,

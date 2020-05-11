@@ -22,6 +22,9 @@ namespace cvtandroid.iOS
         {
             UINavigationBar.Appearance.TintColor = Color.Goldenrod.ToUIColor();
             UITabBar.Appearance.TintColor = Color.Goldenrod.ToUIColor();
+            UINavigationBar.Appearance.BackgroundColor = Color.FromHex("#5c5c5c").ToUIColor();
+            UINavigationBar.Appearance.BarTintColor = Color.FromHex("#5c5c5c").ToUIColor();
+            
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 

@@ -1,6 +1,6 @@
 ﻿using System;
+using MonkeyCache.FileStore;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace cvtandroid
 {
@@ -9,10 +9,25 @@ namespace cvtandroid
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage())
+            if (Application.Current.Properties.ContainsKey("UserId"))
             {
-                BarTextColor = Color.Goldenrod
-            };
+                //Load if Logged In
+                string UserId = Application.Current.Properties["UserId"] as string;
+                Barrel.ApplicationId = "Constructivity" + UserId;
+                if (Barrel.Current.Exists(key: "token") && !Barrel.Current.IsExpired(key: "token"))
+                {
+                    MainPage = new NavigationPage(new Home());
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new MainPage());
+                }
+            }
+            else
+            {
+                //Load if Not Logged In
+                MainPage = new NavigationPage(new MainPage());
+            }
         }
 
         protected override void OnStart()

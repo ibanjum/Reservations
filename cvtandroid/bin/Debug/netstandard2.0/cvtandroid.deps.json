@@ -9,14 +9,15 @@
     ".NETStandard,Version=v2.0/": {
       "cvtandroid/1.0.0": {
         "dependencies": {
+          "MonkeyCache.FileStore": "1.3.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
           "SkiaSharp.Svg": "1.60.0",
           "SkiaSharp.Views.Forms": "1.68.1.1",
           "System.Linq": "4.3.0",
           "UrhoSharp.Forms": "1.9.67",
-          "Xamarin.Essentials": "1.5.2",
-          "Xamarin.Forms": "4.5.0.617",
+          "Xamarin.Essentials": "1.5.3.1",
+          "Xamarin.Forms": "4.6.0.726",
           "Constructivity.Access": "0.0.0.0",
           "Constructivity.Core": "0.0.0.0"
         },
@@ -26,6 +27,29 @@
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
       "Microsoft.NETCore.Targets/1.1.0": {},
+      "MonkeyCache/1.3.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "MonkeyCache.FileStore/1.3.0": {
+        "dependencies": {
+          "MonkeyCache": "1.3.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MonkeyCache.FileStore.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
       "NETStandard.Library/2.0.3": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -65,7 +89,7 @@
       "SkiaSharp.Views.Forms/1.68.1.1": {
         "dependencies": {
           "SkiaSharp": "1.68.1.1",
-          "Xamarin.Forms": "4.5.0.617"
+          "Xamarin.Forms": "4.6.0.726"
         }
       },
       "System.Buffers/4.4.0": {
@@ -263,7 +287,7 @@
       },
       "UrhoSharp.Forms/1.9.67": {
         "dependencies": {
-          "Xamarin.Forms": "4.5.0.617"
+          "Xamarin.Forms": "4.6.0.726"
         },
         "runtime": {
           "lib/netstandard2.0/UrhoSharp.Forms.dll": {
@@ -272,7 +296,7 @@
           }
         }
       },
-      "Xamarin.Essentials/1.5.2": {
+      "Xamarin.Essentials/1.5.3.1": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
         },
@@ -283,19 +307,19 @@
           }
         }
       },
-      "Xamarin.Forms/4.5.0.617": {
+      "Xamarin.Forms/4.6.0.726": {
         "runtime": {
           "lib/netstandard2.0/Xamarin.Forms.Core.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.216"
+            "fileVersion": "4.6.0.446"
           },
           "lib/netstandard2.0/Xamarin.Forms.Platform.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.216"
+            "fileVersion": "4.6.0.446"
           },
           "lib/netstandard2.0/Xamarin.Forms.Xaml.dll": {
             "assemblyVersion": "2.0.0.0",
-            "fileVersion": "4.5.0.216"
+            "fileVersion": "4.6.0.446"
           }
         }
       },
@@ -336,6 +360,20 @@
       "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
       "path": "microsoft.netcore.targets/1.1.0",
       "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
+    "MonkeyCache/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2vKApQKjFaJWCJJSqPmYo572RW1eISKIfPrLRe+qsrQFSmwYxUWEWvu/GVzpIlPSdcRHrxFPz9Z2v7VxjpOC4A==",
+      "path": "monkeycache/1.3.0",
+      "hashPath": "monkeycache.1.3.0.nupkg.sha512"
+    },
+    "MonkeyCache.FileStore/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9SO1tlf6B5qaUMOfmYhRY3DYrs1+KIVsHZIuxDdaqm+uE5iP8nmyv2uL4xCgCG6TSBw51OPg+Fl++bsx0pGiWg==",
+      "path": "monkeycache.filestore/1.3.0",
+      "hashPath": "monkeycache.filestore.1.3.0.nupkg.sha512"
     },
     "NETStandard.Library/2.0.3": {
       "type": "package",
@@ -526,19 +564,19 @@
       "path": "urhosharp.forms/1.9.67",
       "hashPath": "urhosharp.forms.1.9.67.nupkg.sha512"
     },
-    "Xamarin.Essentials/1.5.2": {
+    "Xamarin.Essentials/1.5.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-qHxkrkx5jIC0X/qWhxCPZ3MuuOJm8bfCzAoUtlpOBSE4oV0JhrkTezK0A+IV+k/MeJ3zKc8FexaIXah9rlCTIw==",
-      "path": "xamarin.essentials/1.5.2",
-      "hashPath": "xamarin.essentials.1.5.2.nupkg.sha512"
+      "sha512": "sha512-6sE3kGMhES7dsR8ll+ar+roEIFobjPfDskKNMsU4FF6cV27ZsdArGZHxe1QqPPJcMT6PzJsGvA3l5PNMZgw5ng==",
+      "path": "xamarin.essentials/1.5.3.1",
+      "hashPath": "xamarin.essentials.1.5.3.1.nupkg.sha512"
     },
-    "Xamarin.Forms/4.5.0.617": {
+    "Xamarin.Forms/4.6.0.726": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tB/h7bHEylOgNT+521SRnbmO+LCe5R3lPboD/icCMpa+FdjmxhZQ7+fIIPFDbhY2dqYetGRnAeJWXVx4NLbmAw==",
-      "path": "xamarin.forms/4.5.0.617",
-      "hashPath": "xamarin.forms.4.5.0.617.nupkg.sha512"
+      "sha512": "sha512-NI7iL5NnrQN/gCyoHLlexcDndNin67hFV7ObG8QQU2zbEi15B1SRaAsuiNeXVYAHfXg3/amqryqzGd+3R6lyZQ==",
+      "path": "xamarin.forms/4.6.0.726",
+      "hashPath": "xamarin.forms.4.6.0.726.nupkg.sha512"
     },
     "Constructivity.Access/0.0.0.0": {
       "type": "reference",

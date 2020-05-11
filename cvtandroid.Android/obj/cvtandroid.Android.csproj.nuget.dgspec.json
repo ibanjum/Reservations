@@ -36,6 +36,10 @@
       "frameworks": {
         "monoandroid90": {
           "dependencies": {
+            "MonkeyCache.FileStore": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
@@ -46,11 +50,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.5.2, )"
+              "version": "[1.5.3.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.617, )"
+              "version": "[4.6.0.726, )"
             }
           }
         }
@@ -88,6 +92,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "MonkeyCache.FileStore": {
+              "target": "Package",
+              "version": "[1.3.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -116,11 +124,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.5.2, )"
+              "version": "[1.5.3.1, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.617, )"
+              "version": "[4.6.0.726, )"
             }
           },
           "imports": [

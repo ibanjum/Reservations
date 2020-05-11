@@ -22,7 +22,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-                            <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding Title}" FontSize="24" />
+                            <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding Title}" FontSize="15" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

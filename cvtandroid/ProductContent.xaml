@@ -5,7 +5,7 @@
                     <ListView x:Name="ListViewDefinition" ItemTapped="OnListViewDefinitionItemTapped" Footer="">
                     <ListView.ItemTemplate> 
                         <DataTemplate>
-                            <TextCell Text="{Binding Name}"></TextCell>
+                            <TextCell Text="{Binding Name}" TextColor="Black"></TextCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

@@ -26,7 +26,7 @@ namespace cvtandroid {
         private global::SkiaSharp.Views.Forms.SKCanvasView CanvasView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Button UrhoButton;
+        private global::Urho.Forms.UrhoSurface urhoSurface;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
@@ -34,7 +34,7 @@ namespace cvtandroid {
             ListViewInstances = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ListView>(this, "ListViewInstances");
             ViewPage = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ContentPage>(this, "ViewPage");
             CanvasView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::SkiaSharp.Views.Forms.SKCanvasView>(this, "CanvasView");
-            UrhoButton = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "UrhoButton");
+            urhoSurface = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Urho.Forms.UrhoSurface>(this, "urhoSurface");
         }
     }
 }

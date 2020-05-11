@@ -1,13 +1,11 @@
 ﻿using Constructivity.Access;
-using Newtonsoft.Json;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using System.Collections.Generic;
 using System;
 using System.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace cvtandroid
 {
@@ -18,39 +16,91 @@ namespace cvtandroid
         {
             InitializeComponent();
 
+            SelectedTabColor = Color.Black;
+            UnselectedTabColor = Color.Gray;
+            BarBackgroundColor = Color.Goldenrod;
+
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+
             User user = DataController.GetUser();
             if (user == null)
             {
-                user = DataController.CallUserApi();
+                await DisplayAlert("Error", "Could not contact the server, please try again later.", "OK");
+                return;
             }
-            Title = user.Name;
+            this.ListViewOrganizations.ItemsSource = user.Organizations;
+            this.ListViewProjects.ItemsSource = user.Libraries;
+            Title = user.Name.ToUpper();
 
-            OrganizationReference[] organizations = user.Organizations;
-            List<CustomOrganization> newlist = new List<CustomOrganization>();
-
-            this.ListViewOrganizations.ItemsSource = organizations;
             this.ListViewOrganizations.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
-
-            LibraryReference[] projects = user.Libraries;
-            this.ListViewProjects.ItemsSource = projects;
             this.ListViewProjects.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
 
-            DataController.CallOrgIconApi(organizations, newlist, ListViewOrganizations);
+            //update user with icons in the background
+            List<CustomOrganization> orglist = new List<CustomOrganization>();
+            List<CustomLibrary> liblist = new List<CustomLibrary>();
+            await DataController.GetIcons(user.Organizations, user.Libraries, orglist, liblist, ListViewOrganizations, ListViewProjects);
         }
-        private async void OnListViewOrganizationItemTapped(object sender, ItemTappedEventArgs e)
+        protected async void OnListViewOrganizationItemTapped(object sender, ItemTappedEventArgs e)
         {
             OrganizationReference orgRef = e.Item as OrganizationReference;
 
+            if (orgRef == null)
+                return;
+
             Organization organization = DataController.GetOrganization(orgRef.Name);
-            if(organization == null)
+            if (organization == null)
             {
-                organization = DataController.CallOrganizationApi(orgRef.Name);
+                await DisplayAlert("Error", "Could not contact the server, please try again later.", "OK");
+                return;
             }
+
             await Navigation.PushAsync(new OrganizationContent(organization));
+        }
+        protected async void OnListViewProjectItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            LibraryReference reference = e.Item as LibraryReference;
+
+            if (reference == null)
+                return;
+
+            string[] split = reference.Name.Split('_');
+
+            string orgName = split[0];
+            Organization org = DataController.GetOrganization(orgName);
+            if (org == null)
+            {
+                await DisplayAlert("Error", "Could not contact the server, please try again later.", "OK");
+                return;
+            }
+
+            string proName = split[1];
+            Constructivity.Core.Library lib = DataController.GetLibrary(orgName, proName);
+            if (lib == null)
+            {
+                await DisplayAlert("Error", "Could not contact the server, please try again later.", "OK");
+                return;
+            }
+
+            await Navigation.PushAsync(new ProjectContent(org, lib));
         }
         public class CustomOrganization : OrganizationReference
         {
             public ImageSource Source { get; set; }
+        }
+        public class CustomLibrary : LibraryReference
+        {
+            public ImageSource Source { get; set; }
+        }
+        public class CustomUser
+        {
+            public string Name { get; set; }
+            public Guid UUID { get; set; }
+            public CustomOrganization[] Organizations { get; set; }
+            public CustomLibrary[] Libraries { get; set; }
         }
     }
 }

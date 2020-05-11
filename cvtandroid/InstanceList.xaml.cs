@@ -8,11 +8,11 @@ namespace cvtandroid
 {
     public partial class InstanceList : ContentPage
     {
-        public Organization _org = null;
-        public Constructivity.Core.Library _lib = null;
-        public object _prod = null;
-        public object _instance = null;
-        public object _instancelist = null;
+        Organization _org;
+        Constructivity.Core.Library _lib;
+        object _prod;
+        object _instance;
+        object _instancelist;
 
         public InstanceList(Organization org, Constructivity.Core.Library lib, object prod, object instance, object instancelist, string title)
         {
@@ -23,6 +23,9 @@ namespace cvtandroid
             _prod = prod;
             _instance = instance;
             _instancelist = instancelist;
+
+            if (org == null || lib == null || prod == null || instance == null || instancelist == null)
+                return;
 
             StackLayout titleview = Graphics.GetTitleView(_org.Name, title);
             NavigationPage.SetTitleView(this, titleview);

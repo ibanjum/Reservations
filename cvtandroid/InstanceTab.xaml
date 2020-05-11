@@ -42,8 +42,8 @@
     </ContentPage>
     <ContentPage Title="View" x:Name="ViewPage">
          <StackLayout>
-              <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface" x:Name="CanvasView"></skia:SKCanvasView>
-              <Button x:Name="UrhoButton" Text="View 3D" Clicked="UrhoClicked" IsVisible="False"></Button>
+              <skia:SKCanvasView PaintSurface="OnCanvasViewPaintSurface" x:Name="CanvasView" HeightRequest="200" WidthRequest="100" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" IsVisible="False"></skia:SKCanvasView>
+              <urho:UrhoSurface x:Name="urhoSurface" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" IsVisible="False"></urho:UrhoSurface>
         </StackLayout>
     </ContentPage>
 </TabbedPage>

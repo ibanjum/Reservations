@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xamarin.Forms;
 using Constructivity.Access;
 using System.Reflection;
@@ -11,12 +10,15 @@ namespace cvtandroid
 {
     public partial class ProjectContent : ContentPage
     {
-        public Organization _org = null;
-        public Constructivity.Core.Library _lib = null;
+        Organization _org;
+        Constructivity.Core.Library _lib;
 
         public ProjectContent(Organization org, Constructivity.Core.Library lib)
         {
             InitializeComponent();
+
+            if (org == null || lib == null)
+                return;
 
             _org = org;
             _lib = lib;
@@ -25,16 +27,23 @@ namespace cvtandroid
             Xamarin.Forms.NavigationPage.SetTitleView(this, titleview);
 
             PropertyInfo[] properties = lib.GetType().GetProperties();
-            List<string> products = properties.Select(x => x.Name).ToList();
+            var products = new List<object>();
+            foreach(PropertyInfo prop in properties)
+            {
+                products.Add(new { prop.Name });
+            }
 
             this.ListViewproducts.ItemsSource = products;
             this.ListViewproducts.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
         }
         private async void OnListViewProductItemTapped(object sender, ItemTappedEventArgs e)
         {
-            string prodName = e.Item as string;
-            object prod = _lib.GetType().GetProperty(prodName).GetValue(_lib);
+            if (e.Item == null)
+                return;
 
+            object ob = e.Item as object;
+            string prodName = ob.GetType().GetProperty("Name").GetValue(ob).ToString();
+            object prod = _lib.GetType().GetProperty(prodName).GetValue(_lib);
             await Navigation.PushAsync(new ProductContent(_org, _lib, prod, prodName));
         }
     }

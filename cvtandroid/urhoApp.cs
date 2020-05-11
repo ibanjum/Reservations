@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 using Urho;
-using Urho.Actions;
-using Urho.Physics;
 
 namespace cvtandroid
 {
@@ -17,10 +12,10 @@ namespace cvtandroid
         Scene scene;
         float min = 0;
         float max = 0;
-        protected const float TouchSensitivity = 3;
-        protected float Yaw { get; set; }
-        protected float Pitch { get; set; }
-        protected bool TouchEnabled { get; set; }
+        bool scaling;
+        float TouchSensitivity = 3;
+        float Yaw;
+        float Pitch;
 
         [Preserve]
         public urhoApp(ApplicationOptions options = null) : base(options) { }
@@ -173,7 +168,6 @@ namespace cvtandroid
             VertexBuffer vb = new VertexBuffer(Context, false);
             IndexBuffer ib = new IndexBuffer(Context, false);
 
-            // Shadowed buffer needed for raycasts to work, and so that data can be automatically restored on device loss
             vb.Shadowed = true;
             vb.SetSize(numVertices, ElementMask.Position | ElementMask.Normal, false);
             vb.SetData(vertexData.ToArray());
@@ -204,24 +198,40 @@ namespace cvtandroid
                 sm.SetMaterial(material);
             }
         }
+        void OnTouchBegin(TouchBeginEventArgs e)
+        {
+            scaling = false;
+        }
         protected override void OnUpdate(float timeStep)
         {
             base.OnUpdate(timeStep);
-            MoveCubeByTouches(timeStep);
+            PinchGesture(timeStep);
+            rotateNode(timeStep);
         }
-        private void MoveCubeByTouches(float timeStep)
+        private void rotateNode(float timeStep)
         {
-            const float touchSensitivity = 2f;
             var input = Input;
             for (uint i = 0, num = input.NumTouches; i < num; ++i)
             {
                 TouchState state = input.GetTouch(i);
                 if (state.Delta.X != 0 || state.Delta.Y != 0)
                 {
-                    Yaw += touchSensitivity * camera.Fov / Graphics.Height * state.Delta.X;
-                    Pitch += touchSensitivity * camera.Fov / Graphics.Height * state.Delta.Y;
+                    Yaw += TouchSensitivity * camera.Fov / Graphics.Height * state.Delta.X;
+                    Pitch += TouchSensitivity * camera.Fov / Graphics.Height * state.Delta.Y;
                     rootNode.Rotation = new Quaternion(Yaw, Pitch, 0);
                 }
+            }
+        }
+        public void PinchGesture(float timeStep)
+        {
+            if (Input.NumTouches == 2)
+            {
+                scaling = true;
+                var state1 = Input.GetTouch(0);
+                var state2 = Input.GetTouch(1);
+                var distance1 = IntVector2.Distance(state1.Position, state2.Position);
+                var distance2 = IntVector2.Distance(state1.LastPosition, state2.LastPosition);
+                rootNode.SetScale(rootNode.Scale.X + (distance1 - distance2) / 5000f);
             }
         }
         public static Color ConvertColor(System.Drawing.Color color)

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -24,10 +23,17 @@ namespace cvtandroid
         {
             InitializeComponent();
 
+            if (org == null || lib == null || prod == null || instance == null)
+                return;
+
             _org = org;
             _lib = lib;
             _prod = prod;
             _instance = instance;
+
+            SelectedTabColor = Color.Goldenrod;
+            UnselectedTabColor = Color.LightGray;
+            BarBackgroundColor = Color.FromHex("#5c5c5c");
 
             StackLayout titleview = Graphics.GetTitleView(_org.Name, _instance.ToString());
             Xamarin.Forms.NavigationPage.SetTitleView(this, titleview);
@@ -60,14 +66,25 @@ namespace cvtandroid
             this.ListViewInstances.ItemsSource = list;
             this.ListViewInstances.On<iOS>().SetSeparatorStyle(SeparatorStyle.FullWidth);
 
-           if(_instance.GetType() == typeof(Product) || _instance.GetType() == typeof(Mesh))
+           if(_instance.GetType() != typeof(Product))
             {
-                this.UrhoButton.IsVisible = true;
-            }
-            else
-            {
+                CanvasView.IsVisible = true;
                 this.CanvasView.PaintSurface += OnCanvasViewPaintSurface;
                 ViewPage.Content = this.CanvasView;
+            }
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            if (_instance == null)
+                return;
+
+            if (_instance.GetType() == typeof(Product) || _instance.GetType() == typeof(Mesh))
+            {
+                urhoSurface.IsVisible = true;
+                Xamarin.Forms.Application.Current.Properties["Meshes"] = _instance;
+                urhoSurface.Show<urhoApp>(new Urho.ApplicationOptions(assetsFolder: null) { Orientation = Urho.ApplicationOptions.OrientationType.LandscapeAndPortrait });
             }
         }
         protected void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
@@ -77,10 +94,13 @@ namespace cvtandroid
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
             canvas.Clear();
-            Graphics.CreateSVG(_instance, canvas, info, 50, 50);
+            Graphics.CreateSVG(_instance, canvas, info, 300, 300);
         }
         protected void OnListViewPropertiesItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (e.Item == null)
+                return;
+
             object Value = e.Item as object;
             PropertyInfo valueobject = Value.GetType().GetProperty("Valueobject");
             if (valueobject != null)
@@ -88,14 +108,6 @@ namespace cvtandroid
                 object instancelist = valueobject.GetValue(Value);
                 string title = Value.GetType().GetProperty("Name").GetValue(Value).ToString() + " (" + ((Array)instancelist).Length + ")";
                 Navigation.PushAsync(new InstanceList(_org, _lib, _prod, _instance, instancelist, title));
-            }
-        }
-        protected async void UrhoClicked(object sender, EventArgs e)
-        {
-            if(_instance.GetType() == typeof(Product) || _instance.GetType() == typeof(Mesh))
-            {
-                Xamarin.Forms.Application.Current.Properties["Meshes"] = _instance;
-                await Navigation.PushAsync(new UrhoSurface());
             }
         }
     }

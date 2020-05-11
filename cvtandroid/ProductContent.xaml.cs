@@ -4,25 +4,27 @@ using Constructivity.Core;
 using Xamarin.Forms;
 using Constructivity.Access;
 using System.Collections;
-using System.Reflection;
-using System.Linq;
 
 namespace cvtandroid
 {
     public partial class ProductContent : ContentPage
     {
-        public Organization _org = null;
-        public static Constructivity.Core.Library _lib = null;
-        public object _prod = null;
+        Organization _org;
+        Library _lib;
+        object _prod;
 
-        public ProductContent(Organization org, Constructivity.Core.Library lib, object prod, string prodName)
+        public ProductContent(Organization org, Library lib, object prod, string prodName)
         {
             InitializeComponent();
+
+            if (lib == null || prod == null || prodName == null)
+                return;
 
             _org = org;
             _lib = lib;
             _prod = prod;
 
+            
             StackLayout titleview = Graphics.GetTitleView(_org.Name, prodName);
             Xamarin.Forms.NavigationPage.SetTitleView(this, titleview);
 
@@ -31,6 +33,9 @@ namespace cvtandroid
         }
         private async void OnListViewDefinitionItemTapped(object sender, ItemTappedEventArgs e)
         {
+            if (e.Item == null)
+                return;
+
             await Navigation.PushAsync(new InstanceTab(_org, _lib, _prod, e.Item));
         }
     }

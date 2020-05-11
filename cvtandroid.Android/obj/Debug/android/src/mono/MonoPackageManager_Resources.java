@@ -6,6 +6,8 @@ public class MonoPackageManager_Resources {
 		"Constructivity.Core.dll",
 		"cvtandroid.dll",
 		"FormsViewGroup.dll",
+		"MonkeyCache.dll",
+		"MonkeyCache.FileStore.dll",
 		"Newtonsoft.Json.dll",
 		"SkiaSharp.dll",
 		"SkiaSharp.Extended.Svg.dll",
